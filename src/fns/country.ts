@@ -6,8 +6,8 @@ const codeToName: { [code: string]: string } = {
   BR: 'Brazil',
   CA: 'Canada',
   CH: 'Switzerland',
-  CN: 'China',
   CL: 'Chile',
+  CN: 'China',
   DE: 'Germany',
   ES: 'Spain',
   FI: 'Finland',
@@ -15,17 +15,21 @@ const codeToName: { [code: string]: string } = {
   HK: 'Hong Kong',
   ID: 'Indonesia',
   IE: 'Ireland',
+  IL: 'Israel',
   IN: 'India',
   IT: 'Italy',
   JP: 'Japan',
   KR: 'South Korea',
+  MX: 'Mexico',
+  MY: 'Malaysia',
   NL: 'Netherlands',
   NO: 'Norway',
+  PH: 'Philippines',
   PL: 'Poland',
-  MY: 'Malaysia',
-  SE: 'Sweden',
   SA: 'Saudi Arabia',
+  SE: 'Sweden',
   SG: 'Singapore',
+  TH: 'Thailand',
   TW: 'Taiwan',
   UK: 'United Kingdom',
   US: 'United States',
@@ -35,7 +39,7 @@ const codeToName: { [code: string]: string } = {
 export function getCountryName(countryCode: string): string {
   const name = codeToName[countryCode.toUpperCase()]
   if (!name) {
-    throw new Error(`Country name not found for code '${countryCode}'`)
+    throw new Error(`Country name not found for code '${countryCode}')`)
   }
   return name
 }
