@@ -1,0 +1,106 @@
+[
+  {
+    "key": "ap-seoul",
+    "display_name": "South Korea (Seoul)",
+    "country": "KR",
+    "location": "Seoul",
+    "geo": "Asia",
+    "ping_url": "http://cos.ap-seoul.myqcloud.com"
+  },
+  {
+    "key": "ap-tokyo",
+    "display_name": "Japan (Tokyo)",
+    "country": "JP",
+    "location": "Tokyo",
+    "geo": "Asia",
+    "ping_url": "http://cos.ap-tokyo.myqcloud.com"
+  },
+  {
+    "key": "ap-singapore",
+    "display_name": "Singapore",
+    "country": "SG",
+    "location": "Singapore",
+    "geo": "Asia",
+    "ping_url": "http://cos.ap-singapore.myqcloud.com"
+  },
+  {
+    "key": "ap-bangkok",
+    "display_name": "Thailand (Bangkok)",
+    "country": "TH",
+    "location": "Bangkok",
+    "geo": "Asia",
+    "ping_url": "http://cos.ap-bangkok.myqcloud.com"
+  },
+  {
+    "key": "ap-jakarta",
+    "display_name": "Indonesia (Jakarta)",
+    "country": "ID",
+    "location": "Jakarta",
+    "geo": "Asia",
+    "ping_url": "http://cos.ap-jakarta.myqcloud.com"
+  },
+  {
+    "key": "ap-hongkong",
+    "display_name": "Hong Kong",
+    "country": "HK",
+    "location": "Hong Kong",
+    "geo": "Asia",
+    "ping_url": "http://cos.ap-hongkong.myqcloud.com"
+  },
+  {
+    "key": "ap-beijing",
+    "display_name": "China (Beijing)",
+    "country": "CN",
+    "location": "Beijing",
+    "geo": "Asia",
+    "ping_url": "http://cos.ap-beijing.myqcloud.com"
+  },
+  {
+    "key": "ap-shanghai",
+    "display_name": "China (Shanghai)",
+    "country": "CN",
+    "location": "Shanghai",
+    "geo": "Asia",
+    "ping_url": "http://cos.ap-shanghai.myqcloud.com"
+  },
+  {
+    "key": "ap-guangzhou",
+    "display_name": "China (Guangzhou)",
+    "country": "CN",
+    "location": "Guangzhou",
+    "geo": "Asia",
+    "ping_url": "http://cos.ap-guangzhou.myqcloud.com"
+  },
+  {
+    "key": "eu-frankfurt",
+    "display_name": "Germany (Frankfurt)",
+    "country": "DE",
+    "location": "Frankfurt",
+    "geo": "Europe",
+    "ping_url": "http://cos.eu-frankfurt.myqcloud.com"
+  },
+  {
+    "key": "na-siliconvalley",
+    "display_name": "US (Silicon Valley)",
+    "country": "US",
+    "location": "Silicon Valley",
+    "geo": "North America",
+    "ping_url": "http://cos.na-siliconvalley.myqcloud.com"
+  },
+  {
+    "key": "na-ashburn",
+    "display_name": "US (Virginia)",
+    "country": "US",
+    "location": "Virginia",
+    "geo": "North America",
+    "ping_url": "http://cos.na-ashburn.myqcloud.com"
+  },
+  {
+    "key": "sa-saopaulo",
+    "display_name": "Brazil (São Paulo)",
+    "country": "BR",
+    "location": "São Paulo",
+    "geo": "South America",
+    "ping_url": "http://cos.sa-saopaulo.myqcloud.com"
+  }
+]

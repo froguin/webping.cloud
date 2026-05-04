@@ -48,12 +48,28 @@
     "ping_url": "http://dynamodb.ap-east-1.amazonaws.com/ping"
   },
   {
+    "key": "ap-east-2",
+    "display_name": "Asia Pacific (Taipei)",
+    "country": "TW",
+    "location": "Taipei",
+    "geo": "Asia",
+    "ping_url": "http://dynamodb.ap-east-2.amazonaws.com/ping"
+  },
+  {
     "key": "ap-south-1",
     "display_name": "Asia Pacific (Mumbai)",
     "country": "IN",
     "location": "Mumbai",
     "geo": "Asia",
     "ping_url": "http://dynamodb.ap-south-1.amazonaws.com/ping"
+  },
+  {
+    "key": "ap-south-2",
+    "display_name": "Asia Pacific (Hyderabad)",
+    "country": "IN",
+    "location": "Hyderabad",
+    "geo": "Asia",
+    "ping_url": "http://dynamodb.ap-south-2.amazonaws.com/ping"
   },
   {
     "key": "ap-northeast-3",
@@ -88,6 +104,22 @@
     "ping_url": "http://dynamodb.ap-southeast-2.amazonaws.com/ping"
   },
   {
+    "key": "ap-southeast-3",
+    "display_name": "Asia Pacific (Jakarta)",
+    "country": "ID",
+    "location": "Jakarta",
+    "geo": "Asia",
+    "ping_url": "http://dynamodb.ap-southeast-3.amazonaws.com/ping"
+  },
+  {
+    "key": "ap-southeast-4",
+    "display_name": "Asia Pacific (Melbourne)",
+    "country": "AU",
+    "location": "Melbourne",
+    "geo": "Oceania",
+    "ping_url": "http://dynamodb.ap-southeast-4.amazonaws.com/ping"
+  },
+  {
     "key": "ap-northeast-1",
     "display_name": "Asia Pacific (Tokyo)",
     "country": "JP",
@@ -102,6 +134,14 @@
     "location": "Montreal",
     "geo": "North America",
     "ping_url": "http://dynamodb.ca-central-1.amazonaws.com/ping"
+  },
+  {
+    "key": "ca-west-1",
+    "display_name": "Canada (Calgary)",
+    "country": "CA",
+    "location": "Calgary",
+    "geo": "North America",
+    "ping_url": "http://dynamodb.ca-west-1.amazonaws.com/ping"
   },
   {
     "key": "cn-north-1",
@@ -129,9 +169,9 @@
   },
   {
     "key": "eu-central-2",
-    "display_name": "EU (Zuerich)",
+    "display_name": "EU (Zurich)",
     "country": "CH",
-    "location": "Zuerich",
+    "location": "Zurich",
     "geo": "Europe",
     "ping_url": "http://dynamodb.eu-central-2.amazonaws.com/ping"
   },
@@ -160,6 +200,14 @@
     "ping_url": "http://dynamodb.eu-south-1.amazonaws.com/ping"
   },
   {
+    "key": "eu-south-2",
+    "display_name": "Europe (Spain)",
+    "country": "ES",
+    "location": "Aragon",
+    "geo": "Europe",
+    "ping_url": "http://dynamodb.eu-south-2.amazonaws.com/ping"
+  },
+  {
     "key": "eu-west-3",
     "display_name": "EU (Paris)",
     "country": "FR",
@@ -176,6 +224,14 @@
     "ping_url": "http://dynamodb.eu-north-1.amazonaws.com/ping"
   },
   {
+    "key": "il-central-1",
+    "display_name": "Israel (Tel Aviv)",
+    "country": "IL",
+    "location": "Tel Aviv",
+    "geo": "Middle East",
+    "ping_url": "http://dynamodb.il-central-1.amazonaws.com/ping"
+  },
+  {
     "key": "me-south-1",
     "display_name": "Middle East (Bahrain)",
     "country": "BH",
@@ -184,11 +240,27 @@
     "ping_url": "http://dynamodb.me-south-1.amazonaws.com/ping"
   },
   {
+    "key": "me-central-1",
+    "display_name": "Middle East (UAE)",
+    "country": "AE",
+    "location": "Dubai",
+    "geo": "Middle East",
+    "ping_url": "http://dynamodb.me-central-1.amazonaws.com/ping"
+  },
+  {
     "key": "sa-east-1",
     "display_name": "South America (São Paulo)",
     "country": "BR",
     "location": "São Paulo",
     "geo": "South America",
     "ping_url": "http://dynamodb.sa-east-1.amazonaws.com/ping"
+  },
+  {
+    "key": "mx-central-1",
+    "display_name": "Mexico (Central)",
+    "country": "MX",
+    "location": "Querétaro",
+    "geo": "North America",
+    "ping_url": "http://dynamodb.mx-central-1.amazonaws.com/ping"
   }
 ]

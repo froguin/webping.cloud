@@ -16,6 +16,10 @@
         "display_name": "Alibaba Cloud"
     },
     {
+        "key": "tencent",
+        "display_name": "Tencent Cloud"
+    },
+    {
         "key": "ibm",
         "display_name": "IBM Cloud"
     },
