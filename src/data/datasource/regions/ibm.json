@@ -150,5 +150,29 @@
     "location": "Toronto",
     "geo": "North America",
     "ping_url": "http://s3.tor01.cloud-object-storage.appdomain.cloud"
+  },
+  {
+    "key": "ca-tor",
+    "display_name": "Canada (Toronto)",
+    "country": "CA",
+    "location": "Toronto",
+    "geo": "North America",
+    "ping_url": "http://s3.ca-tor.cloud-object-storage.appdomain.cloud"
+  },
+  {
+    "key": "eu-es",
+    "display_name": "Spain (Madrid)",
+    "country": "ES",
+    "location": "Madrid",
+    "geo": "Europe",
+    "ping_url": "http://s3.eu-es.cloud-object-storage.appdomain.cloud"
+  },
+  {
+    "key": "br-sao",
+    "display_name": "Brazil (São Paulo)",
+    "country": "BR",
+    "location": "São Paulo",
+    "geo": "South America",
+    "ping_url": "http://s3.br-sao.cloud-object-storage.appdomain.cloud"
   }
 ]

@@ -102,5 +102,29 @@
     "location": "São Paulo",
     "geo": "South America",
     "ping_url": "http://cos.sa-saopaulo.myqcloud.com"
+  },
+  {
+    "key": "ap-nanjing",
+    "display_name": "China (Nanjing)",
+    "country": "CN",
+    "location": "Nanjing",
+    "geo": "Asia",
+    "ping_url": "http://cos.ap-nanjing.myqcloud.com"
+  },
+  {
+    "key": "ap-chengdu",
+    "display_name": "China (Chengdu)",
+    "country": "CN",
+    "location": "Chengdu",
+    "geo": "Asia",
+    "ping_url": "http://cos.ap-chengdu.myqcloud.com"
+  },
+  {
+    "key": "ap-chongqing",
+    "display_name": "China (Chongqing)",
+    "country": "CN",
+    "location": "Chongqing",
+    "geo": "Asia",
+    "ping_url": "http://cos.ap-chongqing.myqcloud.com"
   }
 ]

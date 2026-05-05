@@ -1,13 +1,5 @@
 [
   {
-    "key": "ams2",
-    "display_name": "AMS2",
-    "country": "NL",
-    "location": "Amsterdam",
-    "geo": "Europe",
-    "ping_url": "http://speedtest-ams2.digitalocean.com/test_checksums.txt"
-  },
-  {
     "key": "ams3",
     "display_name": "AMS3",
     "country": "NL",
@@ -48,36 +40,12 @@
     "ping_url": "http://speedtest-nyc1.digitalocean.com/test_checksums.txt"
   },
   {
-    "key": "nyc2",
-    "display_name": "NYC2",
-    "country": "US",
-    "location": "New York",
-    "geo": "North America",
-    "ping_url": "http://speedtest-nyc2.digitalocean.com/test_checksums.txt"
-  },
-  {
     "key": "nyc3",
     "display_name": "NYC3",
     "country": "US",
     "location": "New York",
     "geo": "North America",
     "ping_url": "http://speedtest-nyc3.digitalocean.com/test_checksums.txt"
-  },
-  {
-    "key": "sfo1",
-    "display_name": "SFO1",
-    "country": "US",
-    "location": "San Francisco",
-    "geo": "North America",
-    "ping_url": "http://speedtest-sfo1.digitalocean.com/test_checksums.txt"
-  },
-  {
-    "key": "sfo2",
-    "display_name": "SFO2",
-    "country": "US",
-    "location": "San Francisco",
-    "geo": "North America",
-    "ping_url": "http://speedtest-sfo2.digitalocean.com/test_checksums.txt"
   },
   {
     "key": "sfo3",
