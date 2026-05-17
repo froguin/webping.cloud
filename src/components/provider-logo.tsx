@@ -4,15 +4,14 @@ export interface CloudProviderLogoProps {
   providerKey: string
   providerName: string
   className?: string
-  width: string
+  width: number
 }
 
 export function CloudProviderLogo(props: CloudProviderLogoProps): JSX.Element {
-  const w = parseInt(props.width, 10) || 20
   return (
     <Image
-      width={w}
-      height={w}
+      width={props.width}
+      height={props.width}
       className={`inline ${props.className}`}
       src={`/images/provider/${props.providerKey}.svg`}
       title={props.providerName}

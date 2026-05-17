@@ -10,21 +10,61 @@ export function timeout(ms: number): Promise<void> {
   })
 }
 
-export async function ping(url: string): Promise<number> {
-  return new Promise((resolve, reject) => {
-    const img = document.getElementById('url-ping') as HTMLImageElement
-    const timeout = setTimeout(() => {
-      img.src = ''
-      reject()
-    }, 2000)
-    const start = new Date().getTime()
-    const cb = () => {
-      clearTimeout(timeout)
-      resolve(new Date().getTime() - start)
-    }
-    img.onerror = img.onload = cb
+function withCacheBuster(url: string): string {
+  const parsedUrl = new URL(url)
+  if (typeof window !== 'undefined' && window.location.protocol === 'https:') {
+    parsedUrl.protocol = 'https:'
+  }
+  parsedUrl.searchParams.set('_webping', `${Date.now()}-${Math.random().toString(36).slice(2)}`)
+  return parsedUrl.toString()
+}
 
-    // some endpoints require a querystring param to avoid caching, while others don't work when you add them
-    img.src = url.startsWith('https://dynamodb') || url.includes('run.app') ? url : `${url}?${start}`
+async function singlePing(url: string, controller: AbortController): Promise<number> {
+  const start = performance.now()
+  await fetch(withCacheBuster(url), {
+    cache: 'no-store',
+    credentials: 'omit',
+    mode: 'no-cors',
+    redirect: 'follow',
+    referrerPolicy: 'no-referrer',
+    signal: controller.signal,
   })
+  const elapsed = Math.round(performance.now() - start)
+  if (elapsed < 2) {
+    throw new Error('network error')
+  }
+  return elapsed
+}
+
+export async function ping(url: string): Promise<number> {
+  const controller = new AbortController()
+  const timer = setTimeout(() => controller.abort(), 10000)
+
+  try {
+    // Warm up the connection (DNS, TCP, TLS)
+    try {
+      await singlePing(url, controller)
+    } catch {
+      // ignore warm-up errors
+    }
+
+    // Take 3 samples and return the minimum
+    const samples: number[] = []
+    for (let i = 0; i < 3; i++) {
+      try {
+        const latency = await singlePing(url, controller)
+        samples.push(latency)
+      } catch (e) {
+        if (controller.signal.aborted) throw e
+      }
+    }
+
+    if (samples.length === 0) {
+      throw new Error('failed to ping')
+    }
+
+    return Math.min(...samples)
+  } finally {
+    clearTimeout(timer)
+  }
 }

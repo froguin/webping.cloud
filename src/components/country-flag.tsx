@@ -4,16 +4,15 @@ import Image from 'next/image'
 export interface CountryFlagProps {
   countryCode: string
   className?: string
-  width: string
+  width: number
 }
 
 export function CountryFlag(props: CountryFlagProps): JSX.Element {
   const countryName = getCountryName(props.countryCode)
-  const w = parseInt(props.width, 10) || 20
   return (
     <Image
-      width={w}
-      height={w}
+      width={props.width}
+      height={props.width}
       className={`inline ${props.className}`}
       src={`/images/country/${props.countryCode.toLowerCase()}.svg`}
       title={countryName}

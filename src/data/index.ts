@@ -21,7 +21,7 @@ export function getAllProviders(): CloudProvider[] {
 export function getAllCloudRegions(): Record<string, CloudRegion[]> {
   const result: Record<string, CloudRegion[]> = {}
   for (const provider of providers) {
-    // eslint-disable-next-line @typescript-eslint/no-var-requires
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
     result[provider.key] = require(`./datasource/regions/${provider.key}.json`)
   }
   return result
