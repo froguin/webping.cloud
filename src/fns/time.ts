@@ -37,34 +37,46 @@ async function singlePing(url: string, controller: AbortController): Promise<num
 }
 
 export async function ping(url: string): Promise<number> {
-  const controller = new AbortController()
-  const timer = setTimeout(() => controller.abort(), 10000)
+  const MAX_RETRIES = 2
+  let lastError: Error | null = null
 
-  try {
-    // Warm up the connection (DNS, TCP, TLS)
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    const controller = new AbortController()
+    const timer = setTimeout(() => controller.abort(), 10000)
+
     try {
-      await singlePing(url, controller)
-    } catch {
-      // ignore warm-up errors
-    }
-
-    // Take 3 samples and return the minimum
-    const samples: number[] = []
-    for (let i = 0; i < 3; i++) {
+      // Warm up the connection (DNS, TCP, TLS)
       try {
-        const latency = await singlePing(url, controller)
-        samples.push(latency)
-      } catch (e) {
-        if (controller.signal.aborted) throw e
+        await singlePing(url, controller)
+      } catch {
+        // ignore warm-up errors
       }
+
+      // Take samples and return the minimum
+      const samples: number[] = []
+      for (let i = 0; i < 3; i++) {
+        try {
+          const latency = await singlePing(url, controller)
+          samples.push(latency)
+        } catch (e) {
+          if (controller.signal.aborted) throw e
+        }
+      }
+
+      if (samples.length > 0) {
+        clearTimeout(timer)
+        return Math.min(...samples)
+      }
+    } catch (e) {
+      lastError = e as Error
+    } finally {
+      clearTimeout(timer)
     }
 
-    if (samples.length === 0) {
-      throw new Error('failed to ping')
+    if (attempt < MAX_RETRIES) {
+      await delay(500) // wait a bit before retry
     }
-
-    return Math.min(...samples)
-  } finally {
-    clearTimeout(timer)
   }
+
+  throw lastError || new Error('failed to ping')
 }

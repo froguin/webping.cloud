@@ -261,7 +261,7 @@
     "country": "BH",
     "location": "Bahrain",
     "geo": "Middle East",
-    "ping_url": "https://dynamodb.me-south-1.amazonaws.com"
+    "ping_url": "https://dynamodb.me-south-1.amazonaws.com/ping"
   },
   {
     "key": "me-central-1",
