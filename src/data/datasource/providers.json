@@ -30,5 +30,29 @@
     {
         "key": "digitalocean",
         "display_name": "Digital Ocean"
+    },
+    {
+        "key": "vultr",
+        "display_name": "Vultr"
+    },
+    {
+        "key": "ncp",
+        "display_name": "NAVER Cloud"
+    },
+    {
+        "key": "kakaocloud",
+        "display_name": "Kakao Cloud"
+    },
+    {
+        "key": "ktcloud",
+        "display_name": "KT Cloud"
+    },
+    {
+        "key": "nhncloud",
+        "display_name": "NHN Cloud"
+    },
+    {
+        "key": "iwinv",
+        "display_name": "iwinv"
     }
 ]
