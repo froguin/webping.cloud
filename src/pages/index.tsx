@@ -194,24 +194,43 @@ export default function CloudPing(props: CloudPingProps): JSX.Element {
 
   async function pingAll(cancelToken: { cancel: boolean }, isFirstRound = true) {
     await delay(1000)
-    const shuffledItems = Object.values(latencyState).sort(() => 0.5 - Math.random())
-    for (const item of shuffledItems) {
-      if (cancelToken.cancel) return
-      if (!item.region.ping_url || !selectedCountries.includes(item.region.country) || !selectedProviders.includes(item.provider.key)) continue
-      try {
-        const latency = await ping(`${item.region.ping_url}`)
-        setLatencyState((x) => {
-          const n = { ...x[item.key] }
-          if (isFirstRound || !n.latency) {
-            n.latency = latency
-          } else {
-            n.latency = Math.round(n.latency * 0.6 + latency * 0.4)
-          }
-          return { ...x, [item.key]: n }
-        })
-      } catch {}
+    const shuffledItems = Object.values(latencyState).filter(
+      (item) =>
+        item.region.ping_url &&
+        selectedCountries.includes(item.region.country) &&
+        selectedProviders.includes(item.provider.key)
+    ).sort(() => 0.5 - Math.random())
+
+    const CONCURRENCY = 5
+    const queue = [...shuffledItems]
+
+    async function worker() {
+      while (queue.length > 0 && !cancelToken.cancel) {
+        const item = queue.shift()
+        if (!item) break
+
+        try {
+          const latency = await ping(`${item.region.ping_url}`)
+          setLatencyState((x) => {
+            const n = { ...x[item.key] }
+            if (isFirstRound || !n.latency) {
+              n.latency = latency
+            } else {
+              n.latency = Math.round(n.latency * 0.6 + latency * 0.4)
+            }
+            return { ...x, [item.key]: n }
+          })
+        } catch {}
+      }
     }
-    if (!cancelToken.cancel) { await delay(1000); await pingAll(cancelToken, false) }
+
+    const workers = Array.from({ length: CONCURRENCY }, () => worker())
+    await Promise.all(workers)
+
+    if (!cancelToken.cancel) {
+      await delay(1000)
+      await pingAll(cancelToken, false)
+    }
   }
 
   useEffect(() => { const ct = { cancel: false }; if (selectedProviders.length >= 1 && selectedCountries.length >= 1) pingAll(ct); return () => { ct.cancel = true; return } }, [selectedProviders, selectedCountries])
