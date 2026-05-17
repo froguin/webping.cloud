@@ -19,6 +19,7 @@ export default class MyDocument extends Document {
         <body className="bg-gray-200 text-gray-900">
           <Main />
           <NextScript />
+          <script defer data-domain="webping.cloud" data-api="/e" src="/p.js"></script>
         </body>
       </Html>
     )
