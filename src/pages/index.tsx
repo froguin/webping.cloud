@@ -322,7 +322,7 @@ function LatencyCard({ data, maxLatency, rank }: { data: RegionLatency; maxLaten
           <div className="min-w-0 flex-1">
             <div className="flex items-center gap-2">
               <code className="text-sm font-mono font-medium">{data.region.key}</code>
-              <span className="hidden sm:inline text-xs">{data.provider.short_name ?? data.provider.display_name}</span>
+              <span className="hidden sm:inline text-xs">{data.provider.display_name}</span>
             </div>
             <div className="flex items-center gap-1.5 text-xs">
               <CountryFlag width={12} countryCode={data.region.country} />
@@ -520,7 +520,7 @@ export default function CloudPing(props: CloudPingProps): JSX.Element {
                     title={provider.display_name}
                   >
                     <CloudProviderLogo width={16} providerKey={provider.key} providerName={provider.display_name} />
-                    <span>{provider.short_name ?? provider.display_name}</span>
+                    <span>{provider.display_name}</span>
                   </button>
                 )
               })}
