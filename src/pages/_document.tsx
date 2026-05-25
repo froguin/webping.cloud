@@ -9,16 +9,13 @@ export default class MyDocument extends Document {
 
   render(): JSX.Element {
     return (
-      <Html lang="ko">
+      <Html lang="en">
         <Head>
           <meta name="referrer" content="same-origin" />
           <link rel="icon" href="/favicon.ico" type="image/x-icon" />
           <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
           <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
-          <script
-            async
-            src="https://www.googletagmanager.com/gtag/js?id=G-X5LN3WQTJ1"
-          ></script>
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-X5LN3WQTJ1"></script>
           <script
             dangerouslySetInnerHTML={{
               __html: `

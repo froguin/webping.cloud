@@ -135,10 +135,6 @@ const COUNTRY_TO_GEO: Record<string, string> = {
 function getClientGeo(geos: Record<string, string[]>): string {
   const supportedGeos = new Set(Object.keys(geos))
 
-  const localeCountry = navigator.languages?.map((language) => language.split('-')[1]?.toLowerCase()).find(Boolean)
-  const localeGeo = localeCountry ? COUNTRY_TO_GEO[localeCountry] : undefined
-  if (localeGeo && supportedGeos.has(localeGeo)) return localeGeo
-
   const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone
   const timezoneOverrideGeo = timezone ? TIMEZONE_TO_GEO[timezone] : undefined
   if (timezoneOverrideGeo && supportedGeos.has(timezoneOverrideGeo)) {
@@ -202,6 +198,10 @@ function getClientGeo(geos: Record<string, string[]>): string {
 
   const timezoneGeo = timezoneRegion ? TIMEZONE_REGION_TO_GEO[timezoneRegion] : undefined
   if (timezoneGeo && supportedGeos.has(timezoneGeo)) return timezoneGeo
+
+  const localeCountry = navigator.languages?.map((language) => language.split('-')[1]?.toLowerCase()).find(Boolean)
+  const localeGeo = localeCountry ? COUNTRY_TO_GEO[localeCountry] : undefined
+  if (localeGeo && supportedGeos.has(localeGeo)) return localeGeo
 
   return supportedGeos.has(FALLBACK_GEO) ? FALLBACK_GEO : Object.keys(geos)[0]
 }
@@ -449,7 +449,6 @@ export default function CloudPing(props: CloudPingProps): JSX.Element {
       ? `${selectedGeos.slice(0, 2).join(', ')} +${selectedGeos.length - 2}`
       : selectedGeos.join(', ') || `${selectedCountries.length} countries`
 
-
   return (
     <>
       <Head>
@@ -595,7 +594,6 @@ export default function CloudPing(props: CloudPingProps): JSX.Element {
                       </span>
                     </div>
                   )}
-
                 </div>
               </div>
               <div className="space-y-1.5">
