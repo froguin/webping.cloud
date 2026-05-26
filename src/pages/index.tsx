@@ -345,6 +345,18 @@ export default function CloudPing(props: CloudPingProps): JSX.Element {
   const [selectedCountries, setSelectedCountries] = useState<string[]>([])
   const [isLocationInitialized, setIsLocationInitialized] = useState(false)
   const [latencyState, setLatencyState] = useState<LatencyState>(props.initialState)
+  const [pingVersion, setPingVersion] = useState(0)
+
+  const handleReset = () => {
+    setLatencyState((current) => {
+      const next = { ...current }
+      for (const key of Object.keys(next)) {
+        next[key] = { ...next[key], latency: undefined }
+      }
+      return next
+    })
+    setPingVersion((v) => v + 1)
+  }
 
   const [theme, setTheme] = useState<'light' | 'dark'>('dark')
   useEffect(() => {
@@ -424,7 +436,7 @@ export default function CloudPing(props: CloudPingProps): JSX.Element {
       ct.cancel = true
       setIsMeasuring(false)
     }
-  }, [isLocationInitialized, selectedProviders, selectedCountries])
+  }, [isLocationInitialized, selectedProviders, selectedCountries, pingVersion])
 
   const filteredRegions = Object.values(latencyState).filter((x) => selectedProviders.includes(x.provider.key) && selectedCountries.includes(x.region.country))
   const sortedRegionsWithLatency = filteredRegions.filter((x) => x.latency).sort((a, b) => (a.latency && b.latency ? a.latency - b.latency : 1))
@@ -593,6 +605,18 @@ export default function CloudPing(props: CloudPingProps): JSX.Element {
                         {'>200ms'}
                       </span>
                     </div>
+                  )}
+                  {isLocationInitialized && selectedProviders.length >= 1 && selectedCountries.length >= 1 && (
+                    <button
+                      onClick={handleReset}
+                      className="flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs font-medium border border-[color:var(--border)] bg-[color:var(--bg-surface)] hover:bg-[color:var(--border-subtle)] text-[color:var(--text-secondary)] hover:text-[color:var(--text)] transition-all cursor-pointer shadow-sm hover:shadow active:scale-95"
+                      title="Clear and restart latency measurements"
+                    >
+                      <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
+                      </svg>
+                      <span>Reset</span>
+                    </button>
                   )}
                 </div>
               </div>
