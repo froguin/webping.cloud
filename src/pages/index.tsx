@@ -671,7 +671,7 @@ export default function CloudPing(props: CloudPingProps): JSX.Element {
             <p className="text-sm text-[color:var(--text-muted)]">&copy; {new Date().getFullYear()} Cloud Ping Test.</p>
             <div className="flex items-center gap-4 text-sm text-[color:var(--text-muted)]">
               <a
-                href="https://github.com/cloudpickr/cloudpick-ping"
+                href="https://github.com/froguin/cloudping"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-1.5 hover:text-[color:var(--text-secondary)] transition-colors"
