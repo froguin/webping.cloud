@@ -15,7 +15,7 @@ function withCacheBuster(url: string): string {
   if (typeof window !== 'undefined' && window.location.protocol === 'https:') {
     parsedUrl.protocol = 'https:'
   }
-  parsedUrl.searchParams.set('_webping', `${Date.now()}-${Math.random().toString(36).slice(2)}`)
+  parsedUrl.searchParams.set('_cloudping', `${Date.now()}-${Math.random().toString(36).slice(2)}`)
   return parsedUrl.toString()
 }
 

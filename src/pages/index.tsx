@@ -482,7 +482,7 @@ export default function CloudPing(props: CloudPingProps): JSX.Element {
   const toggleGeo = (geo: string, checked: boolean) =>
     setSelectedCountries((v) => (checked ? [...new Set([...v, ...props.geos[geo]])] : v.filter((x) => !props.geos[geo].includes(x))))
 
-  const title = 'Cloud Ping Test'
+  const title = 'Cloudping.me'
   const description = 'Test your network latency to cloud data centers from AWS, Azure, GCP, and 11 more providers.'
   const geoOrder = ['North America', 'Europe', 'Asia', 'Middle East', 'South America', 'Oceania', 'Africa']
 
@@ -498,7 +498,7 @@ export default function CloudPing(props: CloudPingProps): JSX.Element {
   return (
     <>
       <Head>
-        <title>Cloud Ping Test</title>
+        <title>Cloudping.me</title>
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:type" content="website" />
@@ -516,7 +516,7 @@ export default function CloudPing(props: CloudPingProps): JSX.Element {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
-                <h1 className="text-xl sm:text-2xl font-semibold tracking-tight">Cloud Ping Test</h1>
+                <h1 className="text-xl sm:text-2xl font-semibold tracking-tight">Cloudping.me</h1>
               </div>
               <button onClick={toggleTheme} className="theme-toggle" title="Toggle theme">
                 {theme === 'dark' ? (
@@ -668,7 +668,7 @@ export default function CloudPing(props: CloudPingProps): JSX.Element {
             </main>
           </div>
           <footer className="mt-12 border-t border-[color:var(--border)] pt-8 flex flex-wrap items-center justify-between gap-3">
-            <p className="text-sm text-[color:var(--text-muted)]">&copy; {new Date().getFullYear()} Cloud Ping Test.</p>
+            <p className="text-sm text-[color:var(--text-muted)]">&copy; {new Date().getFullYear()} Cloudping.me</p>
             <div className="flex items-center gap-4 text-sm text-[color:var(--text-muted)]">
               <a
                 href="https://github.com/froguin/cloudping"
