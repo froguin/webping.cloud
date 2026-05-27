@@ -1,5 +1,8 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="KT Cloud">
-  <rect width="64" height="64" rx="12" fill="#E52528"/>
-  <path d="M16 38c0 0 8-6 16-6s16 6 16 6" stroke="#fff" stroke-width="4" fill="none" stroke-linecap="round"/>
-  <path d="M20 30c0 0 6-4 12-4s12 4 12 4" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity="0.6"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="kt cloud">
+  <!-- White background matching official KT Cloud favicon -->
+  <rect width="64" height="64" rx="12" fill="#ffffff" stroke="#e8e8e8" stroke-width="1"/>
+  <!-- Red "kt" lowercase bold — matches official favicon exactly -->
+  <text x="32" y="38" text-anchor="middle" dominant-baseline="central"
+        fill="#e60012" font-size="26" font-family="Arial,Helvetica,sans-serif"
+        font-weight="900" font-style="italic">kt</text>
 </svg>

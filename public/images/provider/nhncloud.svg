@@ -1,4 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="NHN Cloud">
-  <rect width="64" height="64" rx="12" fill="#2B5CDE"/>
-  <text x="32" y="32" text-anchor="middle" dominant-baseline="central" fill="#fff" font-size="17" font-family="Arial,Helvetica,sans-serif" font-weight="bold">NHN</text>
+  <!-- Deep navy background matching official NHN Cloud favicon -->
+  <rect width="64" height="64" rx="12" fill="#002fa7"/>
+  <!-- Three overlapping circles forming the cloud mark -->
+  <!-- Teal/cyan circle — top left -->
+  <circle cx="24" cy="27" r="13" fill="#00d4d0"/>
+  <!-- Light silver circle — bottom center -->
+  <circle cx="34" cy="40" r="13" fill="#b8c4d8"/>
+  <!-- Bright blue circle — right -->
+  <circle cx="44" cy="30" r="13" fill="#1e6fff"/>
 </svg>
