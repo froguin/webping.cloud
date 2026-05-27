@@ -580,7 +580,8 @@ export default function CloudPing(props: CloudPingProps): JSX.Element {
                     title={provider.display_name}
                   >
                     <CloudProviderLogo width={16} providerKey={provider.key} providerName={provider.display_name} />
-                    <span>{provider.display_name}</span>
+                    <span className="hidden sm:inline">{provider.display_name}</span>
+                    <span className="sm:hidden">{provider.short_name ?? provider.display_name}</span>
                   </button>
                 )
               })}
