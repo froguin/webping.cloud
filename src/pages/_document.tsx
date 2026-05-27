@@ -12,9 +12,12 @@ export default class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta name="referrer" content="same-origin" />
-          <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+          <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+          <link rel="icon" href="/favicon.ico" sizes="48x48" />
           <link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png" />
           <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png" />
+          <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+          <link rel="manifest" href="/site.webmanifest" />
           <script async src="https://www.googletagmanager.com/gtag/js?id=G-X5LN3WQTJ1"></script>
           <script
             dangerouslySetInnerHTML={{
