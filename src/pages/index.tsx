@@ -320,7 +320,7 @@ function LatencyCard({ data, maxLatency, rank }: { data: RegionLatency; maxLaten
         <div className="latency-bar" style={{ width: `${Math.min(relative, 100)}%`, background: `linear-gradient(90deg, ${getBarColor()}, transparent)` }} />
       )}
       <div className="latency-card-inner">
-        <div className="flex items-center gap-3 min-w-0">
+        <div className="flex items-center gap-3 min-w-0 flex-1">
           <div
             className={`flex-shrink-0 w-9 text-center font-mono ${
               isTop3 ? `text-lg sm:text-xl leading-none ${RANK_CSS[rank! - 1]}` : 'text-xs text-[color:var(--text-muted)]'
@@ -332,18 +332,33 @@ function LatencyCard({ data, maxLatency, rank }: { data: RegionLatency; maxLaten
             <CloudProviderLogo width={20} providerKey={data.provider.key} providerName={data.provider.display_name} />
           </div>
           <div className="min-w-0 flex-1">
-            <div className="flex items-center gap-2">
-              <code className="text-sm font-mono font-medium">{data.region.key}</code>
-              <span className="hidden sm:inline text-xs">{data.provider.display_name}</span>
+            {/* Top line: region code (+ provider on sm) + mobile badges */}
+            <div className="flex items-center justify-between gap-2">
+              <div className="flex items-center gap-2 min-w-0">
+                <code className="text-sm font-mono font-medium truncate">{data.region.key}</code>
+                <span className="hidden sm:inline text-xs flex-shrink-0">{data.provider.display_name}</span>
+              </div>
+              {/* Mobile badges — no P50/P80/P95 labels to save space */}
+              {p50 ? (
+                <div className="flex sm:hidden items-center gap-1 flex-shrink-0">
+                  <span className={`latency-badge ${getBadgeClass(p50)}`}>{p50}ms</span>
+                  <span className={`latency-badge ${getBadgeClass(p80)}`}>{p80}ms</span>
+                  <span className={`latency-badge ${getBadgeClass(p95)}`}>{p95}ms</span>
+                </div>
+              ) : (
+                <div className="flex sm:hidden skeleton w-20 h-5 flex-shrink-0" />
+              )}
             </div>
+            {/* Bottom line: flag + location */}
             <div className="flex items-center gap-1.5 text-xs">
               <CountryFlag width={12} countryCode={data.region.country} />
               <span className="truncate">{data.region.location}</span>
             </div>
           </div>
         </div>
+        {/* Desktop badges with P50/P80/P95 labels */}
         {p50 ? (
-          <div className="flex items-center gap-1.5 flex-shrink-0">
+          <div className="hidden sm:flex items-center gap-1.5 flex-shrink-0">
             <div className="flex flex-col items-center gap-0.5">
               <span className={`latency-badge ${getBadgeClass(p50)}`}>{p50}ms</span>
               <span className="text-[10px] text-[color:var(--text-muted)] font-medium leading-none">P50</span>
@@ -358,7 +373,7 @@ function LatencyCard({ data, maxLatency, rank }: { data: RegionLatency; maxLaten
             </div>
           </div>
         ) : (
-          <div className="skeleton w-14 h-6" />
+          <div className="hidden sm:block skeleton w-14 h-6" />
         )}
       </div>
     </div>

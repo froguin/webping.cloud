@@ -141,7 +141,7 @@ h6 { color: var(--text-muted); }
 .latency-card:last-child { border-bottom: none; }
 .latency-card:hover { background: var(--bg-surface); }
 .latency-bar { @apply absolute inset-y-0 left-0; }
-.latency-card-inner { @apply relative flex items-center justify-between px-4 py-2.5; }
+.latency-card-inner { @apply relative flex items-center justify-between px-3 sm:px-4 py-2.5; }
 
 /* Latency Badge */
 .latency-badge {
@@ -192,9 +192,9 @@ h6 { color: var(--text-muted); }
 .latency-card.rank-1 { border-left: 2px solid rgba(251, 191, 36, 0.6); }
 .latency-card.rank-2 { border-left: 2px solid rgba(148, 163, 184, 0.5); }
 .latency-card.rank-3 { border-left: 2px solid rgba(180, 83, 9, 0.45); }
-.rank-badge-1 { color: #fbbf24; font-weight: 700; }
-.rank-badge-2 { color: #94a3b8; font-weight: 700; }
-.rank-badge-3 { color: #b45309; font-weight: 700; }
+.rank-badge-1 { color: #fbbf24; font-weight: 700; filter: drop-shadow(0 2px 6px rgba(251, 191, 36, 0.35)); }
+.rank-badge-2 { color: #94a3b8; font-weight: 700; filter: drop-shadow(0 2px 6px rgba(148, 163, 184, 0.28)); }
+.rank-badge-3 { color: #b45309; font-weight: 700; filter: drop-shadow(0 2px 6px rgba(180, 83, 9, 0.28)); }
 [data-theme="dark"] .rank-badge-3 { color: #fb923c; }
 
 /* Measuring pulse dot */
