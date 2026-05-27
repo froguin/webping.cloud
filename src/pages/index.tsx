@@ -502,8 +502,10 @@ export default function CloudPing(props: CloudPingProps): JSX.Element {
         <meta name="description" content={description} />
         <meta property="og:title" content={title} />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="/images/large-screenshot.png" />
+        <meta property="og:url" content="https://cloudping.me" />
+        <meta property="og:image" content="https://cloudping.me/images/large-screenshot.png" />
         <meta property="og:description" content={description} />
+        <link rel="canonical" href="https://cloudping.me" />
         <meta name="theme-color" content="#060910" />
       </Head>
       <div className="min-h-screen">
